@@ -1,23 +1,31 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { Component } from '@angular/core';
+import { User } from './models/user.model';
 
-describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
-  });
+import { UserCard } from './user-card/user-card';
+import { UserStatus } from './user-status/user-status';
+import { UserBio } from './user-bio/user-bio';
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [UserCard, UserStatus, UserBio],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  user: User = {
+    name: 'Jose Flores',
+    age: 30,
+    profilePicture: 'https://i.pravatar.cc/150?img=3',
+    bio: 'Angular student learning component interaction.',
+    isOnline: true
+  };
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, AngularApp1');
-  });
-});
+  onStatusChange(status: boolean) {
+    this.user.isOnline = status;
+  }
+
+  onBioChange(newBio: string) {
+    this.user.bio = newBio;
+  }
+}

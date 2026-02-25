@@ -1,0 +1,12 @@
+
+
+<div>
+  <p>
+    Status:
+    <span [style.color]="isOnline ? 'green' : 'red'">
+      {{ isOnline ? 'Online' : 'Offline' }}
+    </span>
+  </p>
+
+  <button (click)="toggleStatus()">Toggle Status</button>
+</div>

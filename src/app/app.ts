@@ -1,12 +1,33 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+
+import { Component } from '@angular/core';
+import { User } from './models/user.model';
+
+import { UserCard } from './user-card/user-card';
+import { UserStatus } from './user-status/user-status';
+import { UserBio } from './user-bio/user-bio';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [UserCard, UserStatus, UserBio],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('AngularApp1');
+  user: User = {
+    name: 'Jose Flores',
+    age: 30,
+    profilePicture: 'https://i.pravatar.cc/150?img=3',
+    bio: 'Angular student learning component interaction.',
+    isOnline: true
+  };
+
+  onStatusChange(status: boolean) {
+    this.user.isOnline = status;
+  }
+
+  onBioChange(newBio: string) {
+    this.user.bio = newBio;
+  }
 }

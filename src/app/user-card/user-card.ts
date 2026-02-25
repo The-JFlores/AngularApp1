@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+
+
+import { Component, Input } from '@angular/core';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-card',
-  imports: [],
   templateUrl: './user-card.html',
-  styleUrl: './user-card.css',
+  styleUrl: './user-card.css'
 })
 export class UserCard {
+
+  // Receives user object from parent component
+  @Input() user!: User;
 
 }

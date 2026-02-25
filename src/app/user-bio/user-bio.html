@@ -1,1 +1,12 @@
-<p>user-bio works!</p>
+
+
+<div>
+  <h3>Bio</h3>
+
+  <p>{{ bio }}</p>
+
+  <textarea 
+    [value]="bio"
+    (input)="editBio($event)">
+  </textarea>
+</div>

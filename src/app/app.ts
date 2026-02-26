@@ -16,9 +16,9 @@ import { UserBio } from './user-bio/user-bio';
 })
 export class App {
   user: User = {
-    name: 'Jose Flores',
-    age: 30,
-    profilePicture: 'https://i.pravatar.cc/150?img=3',
+    name: 'Daffy',
+    age: 100,
+    profilePicture: 'lucas.jpeg',
     bio: 'Angular student learning component interaction.',
     isOnline: true
   };

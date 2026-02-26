@@ -10,5 +10,7 @@
 }
 
 .card img {
-  border-radius: 8%;
+  border-radius: 12px;
+  object-fit: center;
+  border: 3px solid #ddd;
 }
